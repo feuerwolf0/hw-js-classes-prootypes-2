@@ -1,13 +1,14 @@
 export default class Character {
+    static allowedTypes = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+
     constructor(name, type) {
-        this.allowedTypes = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
         if (!(typeof name === 'string')) {
             throw new Error('name должен быть string')
         }
         if ((name.length < 2) || (name.length > 10)) {
             throw new Error('name должен быть длиной от 2 до 10 символов')
         }
-        if (!this.allowedTypes.includes(type)) {
+        if (!Character.allowedTypes.includes(type)) {
             throw new Error(`type должен быть одним из разрешенных типов`)
         }
 
